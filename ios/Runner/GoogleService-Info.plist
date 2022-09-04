@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1062963556746-b3d2mrem3vsst6ag660v8irghu8f5vo8.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1062963556746-b3d2mrem3vsst6ag660v8irghu8f5vo8</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAI-2csOytnqy83x9-SFRRr4-d46zAeVxk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1062963556746</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.josiahfs.pokeApp</string>
+	<key>PROJECT_ID</key>
+	<string>poke-api-e423c</string>
+	<key>STORAGE_BUCKET</key>
+	<string>poke-api-e423c.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1062963556746:ios:e158ac23e4f02141cf1873</string>
+</dict>
+</plist>
