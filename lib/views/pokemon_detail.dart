@@ -3,13 +3,15 @@ import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:poke_app/widget/card_colors.dart';
-
+import 'package:poke_app/widget/detail_text.dart';
 import '../api/poke_api.dart';
 import '../model/pokemon_attribute.dart';
 
 class PokemonDetailPage extends StatefulWidget {
   final String url;
-  const PokemonDetailPage({Key? key, required this.url}) : super(key: key);
+  final String tag;
+  const PokemonDetailPage({Key? key, required this.url, required this.tag})
+      : super(key: key);
 
   @override
   _PokemonDetailState createState() => _PokemonDetailState();
@@ -42,9 +44,12 @@ class _PokemonDetailState extends State<PokemonDetailPage> {
             // data
             final name = snapshot.data!.name;
             final weight = snapshot.data!.weight;
-            final type = snapshot.data!.types;
+            final typeList = snapshot.data!.types;
             final pokeHeight = snapshot.data!.pokeHeight;
             final id = snapshot.data!.id;
+            final order = snapshot.data!.order;
+            final species = snapshot.data!.species!.name;
+            final tag = snapshot.data.toString();
 
             return Scaffold(
               backgroundColor: Colors.amber,
@@ -98,7 +103,7 @@ class _PokemonDetailState extends State<PokemonDetailPage> {
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            type.toString(),
+                            typeList.toString(),
                             style: GoogleFonts.poppins(
                                 color: Colors.white, fontSize: 15),
                             textAlign: TextAlign.left,
@@ -133,73 +138,28 @@ class _PokemonDetailState extends State<PokemonDetailPage> {
                         child: Column(
                           children: [
                             SizedBox(
-                              height: 50,
+                              height: 12,
                             ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Row(
-                                children: [
-                                  Container(
-                                    width: width * 0.3,
-                                    child: Text(
-                                      'Name',
-                                      style: GoogleFonts.poppins(
-                                          color: Colors.blueGrey, fontSize: 17),
-                                    ),
-                                  ),
-                                  Container(
-                                    child: Text(
-                                      '$name'.toUpperCase(),
-                                      style: GoogleFonts.poppins(
-                                          color: Colors.black, fontSize: 17),
-                                    ),
-                                  ),
-                                ],
-                              ),
+                            Text(
+                              'Details',
+                              style: GoogleFonts.poppins(
+                                  color: Colors.black, fontSize: 24),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Row(
-                                children: [
-                                  Container(
-                                    width: width * 0.3,
-                                    child: Text(
-                                      'Height',
-                                      style: GoogleFonts.poppins(
-                                          color: Colors.blueGrey, fontSize: 17),
-                                    ),
-                                  ),
-                                  Container(
-                                    child: Text(
-                                      '$pokeHeight',
-                                      style: GoogleFonts.poppins(
-                                          color: Colors.black, fontSize: 17),
-                                    ),
-                                  ),
-                                ],
-                              ),
+                            DetailText(
+                              detail: 'Name',
+                              info: name!.toUpperCase(),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Row(
-                                children: [
-                                  Container(
-                                    width: width * 0.3,
-                                    child: Text(
-                                      'Weight',
-                                      style: GoogleFonts.poppins(
-                                          color: Colors.blueGrey, fontSize: 17),
-                                    ),
-                                  ),
-                                  Container(
-                                    child: Text(
-                                      '$weight',
-                                      style: GoogleFonts.poppins(
-                                          color: Colors.black, fontSize: 17),
-                                    ),
-                                  ),
-                                ],
-                              ),
+                            DetailText(
+                              detail: 'Height',
+                              info: '$pokeHeight m',
+                            ),
+                            DetailText(
+                              detail: 'Weight',
+                              info: '$weight Kg',
+                            ),
+                            DetailText(
+                              detail: 'Order',
+                              info: order.toString(),
                             ),
                           ],
                         ),
@@ -231,6 +191,7 @@ class _PokemonDetailState extends State<PokemonDetailPage> {
             );
           }
         }
+        ;
       },
     );
   }

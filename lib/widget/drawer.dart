@@ -16,7 +16,21 @@ class SideDrawer extends StatelessWidget {
             ),
             // buildDrawerItem(icon: Icons.power_off, text: 'Log Out',)
             GestureDetector(
-              child: Row(children: [Icon(Icons.door_sliding), Text('Log Out')]),
+              child: Row(children: [
+                SizedBox(width: 12),
+                Icon(
+                  Icons.power_settings_new,
+                  color: Colors.red,
+                ),
+                SizedBox(width: 8),
+                Text(
+                  'Log Out',
+                  style: GoogleFonts.poppins(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.red),
+                )
+              ]),
               onTap: (() {
                 AuthController.instance.logout();
               }),

@@ -28,6 +28,7 @@ class _PokemonListViewState extends State<PokemonListView> {
     checkPokemon(url) {
       Get.to(() => PokemonDetailPage(
             url: url,
+            tag: widget.data.toString(),
           ));
     }
 
@@ -40,9 +41,11 @@ class _PokemonListViewState extends State<PokemonListView> {
           itemBuilder: (context, index) {
             // var type = widget.data[index].type;
             final name = widget.data[index].name;
+            // final color = widget.data[index].color;
             return Card(
                 // color: pokemonTypeMap[widget.data[index].types],
                 color: Colors.blueGrey,
+                // color: color,
                 child: InkWell(
                   onTap: () {
                     checkPokemon(widget.data[index].url);
@@ -73,7 +76,7 @@ class _PokemonListViewState extends State<PokemonListView> {
                         bottom: 5,
                         right: 5,
                         child: Hero(
-                          tag: widget.data[index],
+                          tag: widget.data[index].id,
                           child: Image.network(
                             widget.data[index].imageUrl,
                             height: 100,

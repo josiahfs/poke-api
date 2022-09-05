@@ -1,3 +1,6 @@
+import 'dart:math';
+
+import 'package:flutter/material.dart';
 import 'package:poke_app/api/poke_api.dart';
 
 class PokemonIndex {
