@@ -17,11 +17,13 @@ class PokemonName {
   int? id;
   String? name;
   String? url;
+  // Map<String, dynamic>? types;
 
   PokemonName({this.name, this.url});
 
   String get imageUrl =>
-      'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/$id.png';
+      // 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/$id.png';
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/$id.png";
 
   PokemonName.fromJson(Map<String, dynamic> json) {
     name = json['name'];

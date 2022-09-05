@@ -12,7 +12,7 @@ String pokemonDetailsToJson(PokemonDetail data) => json.encode(data.toJson());
 class PokemonDetail {
   PokemonDetail({
     this.abilities,
-    this.height,
+    this.pokeHeight,
     this.id,
     this.isDefault,
     this.name,
@@ -26,7 +26,7 @@ class PokemonDetail {
 
   List<Ability>? abilities;
 
-  int? height;
+  int? pokeHeight;
   int? id;
   bool? isDefault;
   String? name;
@@ -41,7 +41,7 @@ class PokemonDetail {
   factory PokemonDetail.fromJson(Map<String, dynamic> json) => PokemonDetail(
         abilities: List<Ability>.from(
             json["abilities"].map((x) => Ability.fromJson(x))),
-        height: json["height"],
+        pokeHeight: json["height"],
         id: json["id"],
         isDefault: json["is_default"],
         name: json["name"],
@@ -55,7 +55,7 @@ class PokemonDetail {
 
   Map<String, dynamic> toJson() => {
         "abilities": List<dynamic>.from(abilities!.map((x) => x.toJson())),
-        "height": height,
+        "height": pokeHeight,
         "id": id,
         "is_default": isDefault,
         "name": name,
@@ -124,6 +124,7 @@ class Sprites {
     this.frontShiny,
     this.frontShinyFemale,
     this.animated,
+    this.other,
   });
 
   String? backDefault;
@@ -135,6 +136,7 @@ class Sprites {
   String? frontShiny;
   dynamic? frontShinyFemale;
   Sprites? animated;
+  Other? other;
 
   factory Sprites.fromJson(Map<String, dynamic> json) => Sprites(
         backDefault: json["back_default"],
@@ -148,6 +150,7 @@ class Sprites {
         animated: json["animated"] == null
             ? null
             : Sprites.fromJson(json["animated"]),
+        other: json["other"] == null ? null : Other.fromJson(json["other"]),
       );
 
   Map<String, dynamic> toJson() => {
@@ -160,6 +163,7 @@ class Sprites {
         "front_shiny": frontShiny,
         "front_shiny_female": frontShinyFemale,
         "animated": animated == null ? null : animated?.toJson(),
+        "other": other == null ? null : other?.toJson(),
       };
 }
 
@@ -188,6 +192,22 @@ class Home {
         "front_female": frontFemale,
         "front_shiny": frontShiny,
         "front_shiny_female": frontShinyFemale,
+      };
+}
+
+class Other {
+  Other({
+    this.officialArtwork,
+  });
+
+  OfficialArtwork? officialArtwork;
+
+  factory Other.fromJson(Map<String, dynamic> json) => Other(
+        officialArtwork: OfficialArtwork.fromJson(json["official-artwork"]),
+      );
+
+  Map<String, dynamic> toJson() => {
+        "official-artwork": officialArtwork?.toJson(),
       };
 }
 
@@ -251,3 +271,99 @@ class Type {
         "type": type?.toJson(),
       };
 }
+
+// class PokemonDetail {
+//   int? id;
+//   String? num;
+//   String? name;
+//   String? img;
+//   List<Types>? type;
+//   int? pokeHeight;
+//   int? weight;
+//   String? candy;
+//   int? candyCount;
+//   String? egg;
+//   double? spawnChance;
+//   double? avgSpawns;
+//   String? spawnTime;
+//   // List<double>? multipliers;
+//   // List<String>? weaknesses;
+
+//   PokemonDetail({
+//     this.id,
+//     this.num,
+//     this.name,
+//     this.img,
+//     this.type,
+//     this.pokeHeight,
+//     this.weight,
+//     this.candy,
+//     this.candyCount,
+//     this.egg,
+//     this.spawnChance,
+//     this.avgSpawns,
+//     this.spawnTime,
+//     // this.multipliers,
+//     // this.weaknesses,
+//   });
+
+//   PokemonDetail.fromJson(Map<String, dynamic> json) {
+//     id = json['id'];
+//     num = json['num'];
+//     name = json['name'];
+//     img = json['img'];
+//     type = json['type'];
+//     pokeHeight = json['height'];
+//     weight = json['weight'];
+//     candy = json['candy'];
+//     candyCount = json['candy_count'];
+//     egg = json['egg'];
+//     spawnChance = json['spawn_chance'];
+//     avgSpawns = json['avg_spawns'];
+//     spawnTime = json['spawn_time'];
+//     // multipliers = json['multipliers']?.cast<double>();
+//     // weaknesses = json['weaknesses'].cast<String>();
+//   }
+
+//   Map<String, dynamic> toJson() {
+//     final Map<String, dynamic> data = new Map<String, dynamic>();
+//     data['id'] = this.id;
+//     data['num'] = this.num;
+//     data['name'] = this.name;
+//     data['img'] = this.img;
+//     data['type'] = this.type;
+//     data['height'] = this.pokeHeight;
+//     data['weight'] = this.weight;
+//     data['candy'] = this.candy;
+//     data['candy_count'] = this.candyCount;
+//     data['egg'] = this.egg;
+//     data['spawn_chance'] = this.spawnChance;
+//     data['avg_spawns'] = this.avgSpawns;
+//     data['spawn_time'] = this.spawnTime;
+//     // data['multipliers'] = this.multipliers;
+//     // data['weaknesses'] = this.weaknesses;
+
+//     return data;
+//   }
+// }
+
+// class Types {
+//   String types;
+//   Types({
+//     required this.types,
+//   });
+
+//   Types copyWith({
+//     String? types,
+//   }) {
+//     return Types(
+//       types: this.types,
+//     );
+//   }
+
+//   factory Types.fromMap(Map<String, dynamic> map) {
+//     return Types(
+//       types: map['type']['name'],
+//     );
+//   }
+// }

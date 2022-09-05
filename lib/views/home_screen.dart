@@ -62,10 +62,58 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-
 // TextField(
 //               // controller: controller,
 //               decoration: InputDecoration(
 //                   prefixIcon: const Icon(Icons.search),
 //                   hintText: 'Search Pokemon'),
 //             ),
+
+Color getPokemonColor(String? type) {
+  switch (type) {
+    case "grass":
+      return Colors.green;
+      break;
+    case "fire":
+      return Colors.red;
+      break;
+    case "water":
+      return Colors.blue;
+      break;
+    case "poison":
+      return Colors.purple;
+      break;
+    case "psychic":
+      return Colors.purple;
+      break;
+    case "normal":
+      return Colors.brown;
+      break;
+    case "ground":
+      return Color.fromARGB(225, 100, 66, 54);
+      break;
+    case "bug":
+      return Color.fromARGB(255, 1, 88, 20);
+      break;
+    case "rock":
+      return Color.fromARGB(255, 116, 116, 116);
+      break;
+    case "steel":
+      return Color.fromARGB(255, 116, 116, 116);
+      break;
+    case "electric":
+      return Color.fromARGB(255, 229, 233, 0);
+      break;
+    case "fairy":
+      return Color.fromARGB(255, 203, 0, 221);
+      break;
+    case "ghost":
+      return Color.fromARGB(255, 52, 0, 136);
+      break;
+    case "dragon":
+      return Color.fromARGB(255, 52, 0, 136);
+      break;
+    default:
+      return Colors.grey;
+  }
+}

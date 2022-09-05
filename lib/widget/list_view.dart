@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:poke_app/api/poke_api.dart';
 import 'package:poke_app/model/pokemon_list.dart';
 import 'package:poke_app/views/pokemon_detail.dart';
+import 'package:poke_app/widget/card_colors.dart';
 
 class PokemonListView extends StatefulWidget {
   final dynamic data;
@@ -33,33 +34,56 @@ class _PokemonListViewState extends State<PokemonListView> {
     return NotificationListener<ScrollEndNotification>(
       child: GridView.builder(
           shrinkWrap: true,
-          gridDelegate:
-              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2, childAspectRatio: 1.3),
           itemCount: _pokemonList.length,
           itemBuilder: (context, index) {
+            // var type = widget.data[index].type;
             final name = widget.data[index].name;
             return Card(
-              child: Container(
-                padding: const EdgeInsets.all(10),
-                child: ListTile(
+                // color: pokemonTypeMap[widget.data[index].types],
+                color: Colors.blueGrey,
+                child: InkWell(
                   onTap: () {
                     checkPokemon(widget.data[index].url);
                   },
-                  title: Center(
-                    child: Column(
-                      children: [
-                        Image.network(widget.data[index].imageUrl),
-                        Text(
-                          '$name'.toUpperCase(),
-                          style:
-                              GoogleFonts.poppins(fontWeight: FontWeight.w500),
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        bottom: -10,
+                        right: -10,
+                        child: Image.asset(
+                          'assets/pokeball-bg.png',
+                          height: 100,
+                          fit: BoxFit.fitHeight,
                         ),
-                      ],
-                    ),
+                      ),
+                      Positioned(
+                        top: 20,
+                        left: 20,
+                        child: Text(
+                          '$name'.toUpperCase(),
+                          style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white,
+                              fontSize: 16),
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 5,
+                        right: 5,
+                        child: Hero(
+                          tag: widget.data[index],
+                          child: Image.network(
+                            widget.data[index].imageUrl,
+                            height: 100,
+                            fit: BoxFit.fitHeight,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-              ),
-            );
+                ));
           }),
       onNotification: (notification) {
         if (currOffset <= 900) {

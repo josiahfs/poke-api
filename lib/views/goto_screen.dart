@@ -95,7 +95,7 @@ class GotoScreen extends StatelessWidget {
                                   iconSize: 50,
                                   icon: Image.asset('assets/splash_next.png'),
                                   onPressed: () {
-                                    Get.to(RegisterScreen());
+                                    Get.to(() => RegisterScreen());
                                   },
                                 ),
                               )

@@ -150,7 +150,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 color: Color(0xff0B4E90)),
                           ),
                           onPressed: () {
-                            Get.to(LoginScreen());
+                            Get.to(() => LoginScreen());
                           },
                         ),
                       ],
