@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:poke_app/api/poke_api.dart';
 import 'package:poke_app/model/pokemon_list.dart';
 import 'package:poke_app/views/pokemon_detail.dart';
-import 'package:poke_app/widget/card_colors.dart';
 
 class PokemonListView extends StatefulWidget {
   final dynamic data;
