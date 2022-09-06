@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1062963556746",
+    "project_id": "poke-api-e423c",
+    "storage_bucket": "poke-api-e423c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1062963556746:android:47a9a204192b40b8cf1873",
+        "android_client_info": {
+          "package_name": "com.josiahfs.poke_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1062963556746-d14slf3sesvr7i4lus1i98f8hlte8re0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0tqxtjE07ZPPUZSKe9sQVPGKWveT_DD0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1062963556746-d14slf3sesvr7i4lus1i98f8hlte8re0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1062963556746-b3d2mrem3vsst6ag660v8irghu8f5vo8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.josiahfs.pokeApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

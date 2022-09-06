@@ -39,13 +39,9 @@ class _PokemonListViewState extends State<PokemonListView> {
               crossAxisCount: 2, childAspectRatio: 1.3),
           itemCount: _pokemonList.length,
           itemBuilder: (context, index) {
-            // var type = widget.data[index].type;
             final name = widget.data[index].name;
-            // final color = widget.data[index].color;
             return Card(
-                // color: pokemonTypeMap[widget.data[index].types],
                 color: Colors.blueGrey,
-                // color: color,
                 child: InkWell(
                   onTap: () {
                     checkPokemon(widget.data[index].url);

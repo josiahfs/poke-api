@@ -45,7 +45,8 @@ class SideDrawer extends StatelessWidget {
 Widget buildDrawerHeader() {
   return UserAccountsDrawerHeader(
     accountEmail: Text(
-      '',
+      'trainer',
+      style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w400),
     ),
     accountName: Text(
       'Profile',

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:poke_app/widget/card_colors.dart';
 import 'package:poke_app/widget/detail_text.dart';
 import '../api/poke_api.dart';
 import '../model/pokemon_attribute.dart';
@@ -41,7 +40,7 @@ class _PokemonDetailState extends State<PokemonDetailPage> {
           );
         } else {
           if (snapshot.hasData) {
-            // data
+            // data initialization from API
             final name = snapshot.data!.name;
             final weight = snapshot.data!.weight;
             final typeList = snapshot.data!.types;
@@ -95,24 +94,6 @@ class _PokemonDetailState extends State<PokemonDetailPage> {
                             textAlign: TextAlign.left,
                           ),
                         ],
-                      )),
-                  Positioned(
-                      top: 110,
-                      left: 22,
-                      child: Container(
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            typeList.toString(),
-                            style: GoogleFonts.poppins(
-                                color: Colors.white, fontSize: 15),
-                            textAlign: TextAlign.left,
-                          ),
-                        ),
-                        decoration: BoxDecoration(
-                            color: Colors.black.withOpacity(0.2),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20))),
                       )),
                   Positioned(
                     top: height * 0.18,
